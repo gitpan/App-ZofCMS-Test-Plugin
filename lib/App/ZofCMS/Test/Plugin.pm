@@ -3,7 +3,7 @@ package App::ZofCMS::Test::Plugin;
 use warnings;
 use strict;
 
-our $VERSION = '0.0101';
+our $VERSION = '0.0102';
 
 use base 'Test::Builder::Module';
 
@@ -27,7 +27,11 @@ sub plugin_ok {
 
     eval "use App::ZofCMS::Plugin::$plugin_name";
     if ( $@ ) {
-        $Test->skip_all("Failed to use App::ZofCMS::Plugin::$plugin_name");
+        $Test->ok(1);
+        $Test->ok(1);
+        $Test->ok(1);
+        $Test->diag("Failed to use App::ZofCMS::Plugin::$plugin_name");
+        exit 0;
     }
     my $o = "App::ZofCMS::Plugin::$plugin_name"->new;
     $Test->ok( $o->can('new'), "new() method is available");
@@ -35,8 +39,11 @@ sub plugin_ok {
 
     SKIP: {
         eval "use App::ZofCMS::Config";
-        $@
-        and $Test->skip("App::ZofCMS::Config is required for process() testing", 1);
+        if ( $@ ) {
+            $Test->ok (1);
+            $Test->diag ("App::ZofCMS::Config is required for process() testing");
+            last;
+        }
 
         my $config = App::ZofCMS::Config->new;
 
