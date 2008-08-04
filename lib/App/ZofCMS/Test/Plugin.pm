@@ -3,7 +3,7 @@ package App::ZofCMS::Test::Plugin;
 use warnings;
 use strict;
 
-our $VERSION = '0.0102';
+our $VERSION = '0.0103';
 
 use base 'Test::Builder::Module';
 

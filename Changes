@@ -1,5 +1,8 @@
 Revision history for App-ZofCMS-Test-Plugin
 
+0.0103  August 4, 2008
+        Added an example test
+
 0.0102  August 3, 2008
         Fixed issue with skipping the test if App::ZofCMS::Config is not
         installed.
