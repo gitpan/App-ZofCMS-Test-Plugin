@@ -3,7 +3,7 @@ package App::ZofCMS::Test::Plugin;
 use warnings;
 use strict;
 
-our $VERSION = '0.0103';
+our $VERSION = '0.0104';
 
 use base 'Test::Builder::Module';
 
@@ -20,7 +20,7 @@ sub import {
 }
 
 sub plugin_ok {
-    my ( $plugin_name, $template_with_input, $query ) = @_;
+    my ( $plugin_name, $template_with_input, $query, $config_hash ) = @_;
 
     $template_with_input ||= {};
     $query ||= {};
@@ -46,6 +46,7 @@ sub plugin_ok {
         }
 
         my $config = App::ZofCMS::Config->new;
+        $config->conf( $config_hash || {} );
 
         $o->process( $template_with_input, $query, $config );
 
@@ -91,7 +92,7 @@ App::ZofCMS::Test::Plugin - test module for testing ZofCMS plugins
 
 =head1 DESCRIPTION
 
-The module provides some basic test for ZofCMS plugins. See SYNOPSYS
+The module provides a basic test suit for ZofCMS plugins. See SYNOPSYS
 for usage. That would be in one of your t/test.t files.
 
 =head2 plugin_ok
@@ -100,9 +101,10 @@ for usage. That would be in one of your t/test.t files.
         'PlugName',  # plugin's name
         { input => 'Foo' }, # plugin takes input via first level 'input' key
         { foo => 'bar'   }, # query parameters
+        { foo => 'bar'   }, # the loaded "main config" file hashref
     );
 
-Takes three arguments, second and third one are optional.
+Takes three arguments, second, third and fourth are optional.
 First argument is the name
 of your plugin with the C<App::ZofCMS::Plugin::> part stripped off (i.e.
 the name that you would use in ZofCMS template to include the plugin).
@@ -113,7 +115,8 @@ check that any first level keys used by the plugin are deleted by the
 plugin. Third parameter is optional and is also a hashref which represents
 query parameters with keys being parameters names and values being
 parameters' values. Use this if your plugin depends on some query
-parameters.
+parameters. Fourth parameter is again a hashref which represents the
+hashref normally present in ZofCMS "main configuration file".
 
 =head1 AUTHOR
 

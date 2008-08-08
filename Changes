@@ -1,5 +1,10 @@
 Revision history for App-ZofCMS-Test-Plugin
 
+0.0104  August 7, 2008
+        Added option to specify main config file hashref
+        which effectively fixed a bug that prevented testing plugins that
+        accessed ZofCMS::Config object
+
 0.0103  August 4, 2008
         Added an example test
 

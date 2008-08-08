@@ -12,5 +12,7 @@ plan skip_all
 
 plugin_ok(
     'Cookies',
-    { set_cookies => [ [foo => 'bar'] ], }
+    { set_cookies => [ [foo => 'bar'] ], },
+    { foo => 'bar' },
+    { foo => 'bar' },
 );
