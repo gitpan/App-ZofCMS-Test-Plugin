@@ -3,7 +3,7 @@ package App::ZofCMS::Test::Plugin;
 use warnings;
 use strict;
 
-our $VERSION = '0.0104';
+our $VERSION = '0.0105';
 
 use base 'Test::Builder::Module';
 
@@ -65,6 +65,8 @@ sub plugin_ok {
 
 1;
 __END__
+
+=encoding utf8
 
 =head1 NAME
 

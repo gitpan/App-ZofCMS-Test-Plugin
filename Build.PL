@@ -13,7 +13,9 @@ my $builder = Module::Build->new(
     requires => {
         'Test::Builder'         => 0.80,
         'Test::Builder::Module' => 0.80,
+        'perl' => '5.006',
     },
+    configure_requires => { 'Module::Build' => 0 },
     add_to_cleanup      => [ 'App-ZofCMS-Test-Plugin-*' ],
     create_makefile_pl => 'traditional',
 );

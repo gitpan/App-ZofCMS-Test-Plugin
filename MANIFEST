@@ -2,11 +2,13 @@ Build.PL
 Changes
 MANIFEST
 README
+LICENSE
 lib/App/ZofCMS/Test/Plugin.pm
 examples/test_example.pl
 t/00-load.t
-t/kwalitee.t
-t/pod-coverage.t
-t/pod.t
+xt/kwalitee.t
+xt/pod-coverage.t
+xt/pod.t
 Makefile.PL
 META.yml
+META.json

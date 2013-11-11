@@ -1,22 +1,26 @@
 ---
-name: App-ZofCMS-Test-Plugin
-version: 0.0104
+abstract: 'test module for testing ZofCMS plugins'
 author:
   - 'Zoffix Znet <zoffix@cpan.org>'
-abstract: test module for testing ZofCMS plugins
-license: perl
-resources:
-  license: http://dev.perl.org/licenses/
-requires:
-  Test::Builder: 0.8
-  Test::Builder::Module: 0.8
 build_requires:
   Test::More: 0
+configure_requires:
+  Module::Build: 0
+dynamic_config: 1
+generated_by: 'Module::Build version 0.4007, CPAN::Meta::Converter version 2.132830'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: App-ZofCMS-Test-Plugin
 provides:
   App::ZofCMS::Test::Plugin:
     file: lib/App/ZofCMS/Test/Plugin.pm
-    version: 0.0104
-generated_by: Module::Build version 0.2808
-meta-spec:
-  url: http://module-build.sourceforge.net/META-spec-v1.2.html
-  version: 1.2
+    version: 0.0105
+requires:
+  Test::Builder: 0.8
+  Test::Builder::Module: 0.8
+  perl: 5.006
+resources:
+  license: http://dev.perl.org/licenses/
+version: 0.0105
